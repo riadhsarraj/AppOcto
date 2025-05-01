@@ -1,5 +1,7 @@
 import { NavigatorScreenParams } from "@react-navigation/native";
 import { BottomTabParamList } from "./BottomTabParamList";
+import { DrawerNavigationProp } from '@react-navigation/drawer';
+import { StackNavigationProp } from "@react-navigation/stack";
 
 export type RootStackParamList = {
     DrawerNavigation: NavigatorScreenParams<BottomTabParamList>;
@@ -75,3 +77,9 @@ export type RootStackParamList = {
     TabStyle3: undefined;
     TabStyle4: undefined;
 };
+export type DrawerParamList = {
+    HomeStack: NavigatorScreenParams<RootStackParamList>; 
+  };
+  export type HomeScreenProps = {
+    navigation: DrawerNavigationProp<DrawerParamList, 'HomeStack'> & StackNavigationProp<RootStackParamList, 'Home'>;
+  };

@@ -10,15 +10,13 @@ const ListStyle1 = (props : any) => {
 
     return (
         <>
-            <TouchableOpacity 
-                onPress={() => props.onPress && props.onPress()}
+            <View 
                 style={[styles.listStyle,{backgroundColor:colors.card}]}>
                 {props.icon &&
                     <View
                         style={{
                             height:30,
                             width:30,
-                            //backgroundColor:COLORS.primary,
                             borderRadius:30,
                             marginRight:10,
                             alignItems:'center',
@@ -46,7 +44,7 @@ const ListStyle1 = (props : any) => {
                 {props.arrowRight && 
                     <FontAwesome name={'angle-right'} color={colors.title} size={20}/>
                 }
-            </TouchableOpacity>
+            </View>
         </>
     );
 };

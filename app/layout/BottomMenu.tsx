@@ -32,7 +32,7 @@ const BottomMenu = ({state, navigation, descriptors}: Props) => {
     const [tabWidth, setWidth] = useState(wp('100%'));
 
     const tabWD =
-        tabWidth < SIZES.container ? tabWidth / 4 : SIZES.container / 4;
+        tabWidth < SIZES.container ? tabWidth / 3 : SIZES.container / 3;
 
     const circlePosition = useRef(
         new Animated.Value(0),
@@ -52,7 +52,7 @@ const BottomMenu = ({state, navigation, descriptors}: Props) => {
 
     const onTabPress = (index:any) => {
         const tabW =
-            tabWidth < SIZES.container ? tabWidth  / 4 : SIZES.container / 4; // Adjust this according to your tab width
+            tabWidth < SIZES.container ? tabWidth  / 3 : SIZES.container / 3;
 
         Animated.spring(circlePosition, {
             toValue: index * tabW,
@@ -92,12 +92,11 @@ const BottomMenu = ({state, navigation, descriptors}: Props) => {
                     <Animated.View style={{transform: [{translateX: circlePosition}]}}>
                         <View
                             style={{
-                                width: tabWidth < SIZES.container ? tabWidth / 4 : SIZES.container / 4,
+                                width: tabWidth < SIZES.container ? tabWidth / 3 : SIZES.container / 3,
                                 position: 'absolute',
-                                //backgroundColor:'red',
                                 zIndex: 1,
-                                top:0,
-                                bottom:0,
+                                top: 0,
+                                bottom: 0,
                                 left: 0,
                                 alignItems: 'center',
                                 justifyContent: 'center',
@@ -105,10 +104,12 @@ const BottomMenu = ({state, navigation, descriptors}: Props) => {
                         >
                             <View
                                 style={{
-                                    height:40,
-                                    width:40,
-                                    borderRadius:50,
-                                    backgroundColor:COLORS.primary,
+                                    height: 40,
+                                    width: 40,
+                                    borderRadius: 20,
+                                    backgroundColor: COLORS.primary,
+                                    alignItems: 'center',
+                                    justifyContent: 'center',
                                 }}
                             />
                         </View>

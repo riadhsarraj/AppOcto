@@ -102,72 +102,9 @@ const Myorder = ({navigation} : MyorderScreenProps) => {
                 leftIcon='back'
                 rightIcon4='home'
             />
-            <View 
-                style={[{
-                        width:'auto',
-                        position:'absolute',
-                        left:10,
-                        right:10,
-                        bottom:10,
-                        zIndex:10,
-                        backgroundColor:COLORS.title,
-                        borderRadius: 60,
-                        height:65,
-                        //alignItems:'center',
-                        justifyContent:'center',
-                        paddingHorizontal:10
-                    }]}
-            >
-                <View style={GlobalStyleSheet.flex}>
-                    <TouchableOpacity
-                        onPress={() => filterData('all')} 
-                        style={{
-                            justifyContent:'center',
-                            alignItems:'center',
-                            height:47,
-                            width:'20%',
-                            backgroundColor: activeFilter === 'all' ? COLORS.primary : COLORS.title,
-                            borderRadius:50,
-                        }}
-                    >
-                        <Text style={[
-                            FONTS.fontRegular,{fontSize:14,color: activeFilter === 'all' ? COLORS.card : COLORS.card },
-                        ]}>All</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={() => filterData('ongoing')}
-                        activeOpacity={0.5}  
-                        style={{
-                            justifyContent:'center',
-                            alignItems:'center',
-                            height:47,
-                            width:'40%',
-                            backgroundColor:activeFilter === 'ongoing' ? COLORS.primary : COLORS.title,
-                            borderRadius:50,
-                        }}
-                    >
-                        <Text style={[
-                            FONTS.fontRegular,{fontSize:14,color: activeFilter === 'ongoing' ? COLORS.card : COLORS.card },
-                        ]}>Ongoing</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        onPress={() => filterData('completed')} 
-                        activeOpacity={0.5}  
-                        style={{
-                            justifyContent:'center',
-                            alignItems:'center',
-                            height:47,
-                            width:'40%',
-                            backgroundColor:activeFilter === 'completed' ? COLORS.primary : COLORS.title ,
-                            borderRadius:50,
-                        }}
-                    >
-                         <Text style={[
-                            FONTS.fontRegular,{fontSize:14,color: activeFilter === 'completed' ? COLORS.card : COLORS.card },
-                        ]}>Completed</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
+           
+               
+         
            <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{flexGrow:1,paddingBottom:70,}}>
                 <View style={[GlobalStyleSheet.container, { paddingTop: 20,paddingHorizontal:10 }]}>
                     <View style={{ }}>
