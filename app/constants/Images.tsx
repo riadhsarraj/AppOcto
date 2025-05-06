@@ -1,10 +1,16 @@
 export const IMAGES = {
     
    logosim : require('../assets/images/logo.png'),
+   orange : require('../assets/images/orange.png'),
+   ooredoo : require('../assets/images/ooredoo.png'),
+   telecom : require('../assets/images/telecom.png'),
    back : require('../assets/images/back.jpg'),
    getsim : require('../assets/images/item/getEsim.png'),
    money : require('../assets/images/money.png'),
    local : require('../assets/images/local.png'),
+   Coverage : require('../assets/images/Coverage.png'),
+   Data : require('../assets/images/Data.png'),
+   Validity : require('../assets/images/Validity.png'),
    global : require('../assets/images/global.png'),
    tunisia : require('../assets/images/countries/tunisia.png'),
    turkey : require('../assets/images/countries/turkey.png'),

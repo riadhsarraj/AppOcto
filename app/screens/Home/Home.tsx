@@ -68,7 +68,7 @@ export const Home = ({ navigation }: HomeScreenProps) => {
       case "local":
         return (
            <View style={GlobalStyleSheet.cardBody}>
-            <TouchableOpacity onPress={() => navigation.navigate("Myorder")} >
+            <TouchableOpacity onPress={() => navigation.navigate("Plans")} >
               <ListStyle1 arrowRight image={IMAGES.tunisia} title={"Tunisia"} />
             </TouchableOpacity>
             <TouchableOpacity onPress={() => navigation.navigate("Myorder")}>

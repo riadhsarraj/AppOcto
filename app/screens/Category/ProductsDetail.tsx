@@ -11,7 +11,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import CheckoutItems from '../../components/CheckoutItems';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from '../../redux/reducer/cartReducer';
-import Swiper from 'react-native-swiper/src';
+import Swiper from 'react-native-swiper';
 import { Feather } from '@expo/vector-icons';
 
 
@@ -111,7 +111,7 @@ const ProductsDetails = ({navigation} : ProductsDetailsScreenProps) => {
                             >
                                 <View style={{flexDirection:'row', gap:5 }}>
                                     <Text style={[styles.subtitle2,{fontSize:14,color:colors.title}]}>$</Text>
-                                    <Text style={[styles.subtitle2,{color:colors.title,lineHeight:30}]}>5.8</Text>
+                                    <Text style={[styles.subtitle2,{color:colors.title,lineHeight:30}]}>4.8</Text>
                                 </View>
                                 <Text style={{...FONTS.fontMedium,fontSize:16,color:'#9A9A9A'}}>$8.0</Text>
                             </View>

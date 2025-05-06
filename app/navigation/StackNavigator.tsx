@@ -17,7 +17,7 @@ import BottomNavigation from './BottomNavigation';
 import Notification from '../screens/Notification/Notification';
 import Search from '../screens/Search/Search';
 import Products from '../screens/Category/Products';
-import ProductsDetails from '../screens/Category/ProductsDetails';
+import ProductsDetails from '../screens/Category/ProductsDetail';
 import DeliveryAddress from '../screens/Payment/DeliveryAddress';
 import AddDeliveryAddress from '../screens/Payment/AddDeliveryAddress';
 import Payment from '../screens/Payment/Payment';
@@ -55,6 +55,10 @@ import SwipeableScreen from '../screens/Components/Swipeable';
 import Tabs from '../screens/Components/Tabs';
 import Tables from '../screens/Components/Tables';
 import Toggles from '../screens/Components/Toggles';
+import Plans from '../screens/Plans/Plans';
+import PlanDetails from '../screens/PlansDetails/PlanDetails';
+
+
 
 
 
@@ -101,8 +105,7 @@ const StackNavigator = () => {
 				 <StackComponent.Screen name="Singlechat" component={Singlechat} />
 				 <StackComponent.Screen name="Call" component={Call} /> 
 				 <StackComponent.Screen name="EditProfile" component={EditProfile} />
-
-
+				
 				<StackComponent.Screen name="Components" component={Components} />
 				<StackComponent.Screen name="Accordion" component={AccordionScreen} />
 				<StackComponent.Screen name="BottomSheet" component={BottomSheet} />
@@ -126,6 +129,8 @@ const StackNavigator = () => {
 				<StackComponent.Screen name="Tabs" component={Tabs} />
 				<StackComponent.Screen name="Tables" component={Tables} />
 				<StackComponent.Screen name="Toggles" component={Toggles} />
+				<StackComponent.Screen name="Plans" component={Plans} />
+				<StackComponent.Screen name="PlanDetails" component={PlanDetails} />
 			</StackComponent.Navigator>
 		</View>
     )

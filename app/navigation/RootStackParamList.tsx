@@ -7,6 +7,8 @@ export type RootStackParamList = {
     DrawerNavigation: NavigatorScreenParams<BottomTabParamList>;
     openDrawer:undefined;
     Demo: undefined;
+    Plans: undefined;
+    PlanDetails: undefined;
     ChooseLanguage: undefined;
     QrCodeScanner: undefined;
     WelCome: undefined;
@@ -76,6 +78,7 @@ export type RootStackParamList = {
     TabStyle2: undefined;
     TabStyle3: undefined;
     TabStyle4: undefined;
+
 };
 export type DrawerParamList = {
     HomeStack: NavigatorScreenParams<RootStackParamList>; 

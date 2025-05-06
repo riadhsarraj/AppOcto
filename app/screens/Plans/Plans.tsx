@@ -2,7 +2,6 @@ import { useTheme } from '@react-navigation/native';
 import React, { useState } from 'react'
 import { View, Text, ScrollView, TouchableOpacity, StyleSheet} from 'react-native'
 import Header from '../../layout/Header';
-import { COLORS,FONTS} from '../../constants/theme';
 import { GlobalStyleSheet } from '../../constants/StyleSheet';
 import { IMAGES } from '../../constants/Images';
 import { StackScreenProps } from '@react-navigation/stack';
@@ -10,101 +9,52 @@ import { RootStackParamList } from '../../navigation/RootStackParamList';
 import Cardstyle4 from '../../components/Card/Cardstyle4';
 
 
-const MyorderData = [
+const PlansData = [
     {
         id:"30",
-        image:IMAGES.item3,
-        title:'Sweet Lemon Indonesian Tea',
-        price:"$12.6",
-        brand:"Tea Lemon",
-        btntitle:'Track Order',
-        trackorder:true,
-        status : "ongoing",
+        image:IMAGES.orange,
+        title:'Orange',
+        coverage:"Tunisia",
+        Data:"1 GB",
+        validity:"7 Days",
+        price:"$4.50",
+        
+        
     },
     {
         id:"31",
-        image:IMAGES.item2,
-        title:"Creamy Mocha Ome Coffee",
-        price:"$92.9",
-        brand:"Coffee",
-        btntitle:'Write Review',
-        hascolor:true,
-        completed:true,
-        status : "completed",
+        image:IMAGES.ooredoo,
+        title:"Ooredoo",
+        coverage:"Tunisia",
+        Data:"2 GB",
+        validity:"7 Days",
+        price:"$6.50",
     },
     {
         id:"32",
-        image:IMAGES.item1,
-        title:'Arabica Latte Ombe Coffee',
-        price:"$11.9",
-        brand:"Coffee",
-        btntitle:'Write Review',
-        EditReview:true,
-        completed:true,
-        status : "completed",
+        image:IMAGES.telecom,
+        title:'Telecom',
+        coverage:"Tunisia",
+        Data:"5 GB",
+        validity:"14 Days",
+        price:"$9.50",
     },
-    {
-        id:"33",
-        image:IMAGES.item4,
-        title:'Original Hot Coffee',
-        price:"$11.49",
-        brand:"Coffee",
-        btntitle:'Write Review',
-        completed:true,
-        status : "completed",
-    },
-    {
-        id:"34",
-        image:IMAGES.item1,
-        title:"Hot Cappuccino Latte with Mocha",
-        price:"$9.29",
-        brand:"Coffee",
-        btntitle:'Track Order',
-        trackorder:true,
-        status : "ongoing",
-    },
-    {
-        id:"35",
-        image:IMAGES.item2,
-        title:'Arabica Latte Ombe Coffee ',
-        price:"$11.99",
-        btntitle:'Track Order',
-        brand:"coffee",
-        trackorder:true,
-        status : "ongoing",
-    },
+   
 ]
 
-type MyorderScreenProps = StackScreenProps<RootStackParamList, 'Myorder'>;
+type PlansScreenProps = StackScreenProps<RootStackParamList, 'Plans'>;
 
-const Myorder = ({navigation} : MyorderScreenProps) => {
+const Plans = ({navigation} : PlansScreenProps) => {
     const theme = useTheme();
     const { colors } : {colors : any} = theme;
-
-    const [orderData , setOrderData] = useState(MyorderData);
-    const [activeFilter, setActiveFilter] = useState('all'); // Track active filter
-
-    const filterData = (val:any) => {
-        setActiveFilter(val); // Update active filter when a filter is selected
-        if(val === 'all'){
-            setOrderData(MyorderData);
-        } else {
-            const newArry = MyorderData.filter(e => e.status === val);
-            setOrderData(newArry);
-        }
-    }
-
-
+    const [orderData , setOrderData] = useState(PlansData);
     return (
        <View style={{backgroundColor:theme.dark ? colors.background : colors.card,flex:1}}>
             <Header
-                title='My Order'
+                title='Tunisia'
                 leftIcon='back'
                 rightIcon4='home'
-            />
-           
-               
-         
+            />  
            <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{flexGrow:1,paddingBottom:70,}}>
                 <View style={[GlobalStyleSheet.container, { paddingTop: 20,paddingHorizontal:10 }]}>
                     <View style={{ }}>
@@ -117,14 +67,16 @@ const Myorder = ({navigation} : MyorderScreenProps) => {
                                         <View   key={index} style={{marginBottom:30}}>
                                             <Cardstyle4
                                                 id={data.id}
-                                                Myorder={true}
+                                                
                                                 title={data.title}
+                                                coverage={data.coverage}
+                                                Data={data.Data}
+                                                validity={data.validity}
                                                 price={data.price}
                                                 image={data.image}
-                                                
                                                 btntitle={data.btntitle}
                                                 completed={data.completed}
-                                                onPress={() => navigation.navigate('ProductsDetails')}
+                                                onPress={() => navigation.navigate('PlanDetails')}
                                                 onPress3={() => navigation.navigate('Trackorder')}
                                                 onPress4={() => navigation.navigate('Writereview')}                                          
                                             />
@@ -141,13 +93,6 @@ const Myorder = ({navigation} : MyorderScreenProps) => {
 }
 
 
-const styles = StyleSheet.create({
-    TopbarCenterLine:{
-        flexDirection:'row',
-        alignItems:'center',
-        gap:5,
-        justifyContent:'center',
-    }
-})
 
-export default Myorder
+
+export default Plans
