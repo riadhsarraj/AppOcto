@@ -102,7 +102,7 @@ const SingIn = ({navigation} : SingInScreenProps) => {
                             title={"Create an account"}
                             onPress={() => navigation.navigate('SignUp')}
                             text={COLORS.title}
-                            color={COLORS.secondary}
+                            color={COLORS.input}
                             style={{borderRadius:52}}
                         />
                     </View>

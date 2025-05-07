@@ -1,12 +1,6 @@
 import { useTheme } from "@react-navigation/native";
 import React, { useState } from "react";
-import {
-  View,
-  Text,
-  Image,
-  TouchableOpacity,
-  StyleSheet,
-} from "react-native";
+import { View, Text, Image, TouchableOpacity, StyleSheet } from "react-native";
 import { IMAGES } from "../../constants/Images";
 import { GlobalStyleSheet } from "../../constants/StyleSheet";
 import { COLORS, FONTS, SIZES } from "../../constants/theme";
@@ -14,7 +8,6 @@ import Button from "../../components/Button/Button";
 import { StackScreenProps } from "@react-navigation/stack";
 import { RootStackParamList } from "../../navigation/RootStackParamList";
 import { ScrollView } from "react-native-gesture-handler";
-import { useDispatch, useSelector } from "react-redux";
 import { Feather } from "@expo/vector-icons";
 
 const ItemImages = [IMAGES.item4, IMAGES.item5, IMAGES.item6];
@@ -24,23 +17,20 @@ type PlanDetailsScreenProps = StackScreenProps<
   "PlanDetails"
 >;
 
-
+const Data = [
+  "Access to all basic features",
+  "Basic reporting and analytics",
+  "Up to 10 individual users",
+  "20 GB individual data each user",
+  "Basic chat and emails support",
+];
 const PlanDetails = ({ navigation }: PlanDetailsScreenProps) => {
   const theme = useTheme();
   const { colors }: { colors: any } = theme;
 
-  const dispatch = useDispatch();
-
   const addItemToCart = () => {
-    dispatch(
-      addToCart({
-        id: "15",
-        image: IMAGES.item11,
-        title: "Hot Creamy Cappuccino Latte Ombe",
-        price: "$12.6",
-        brand: "Coffee",
-      } as any)
-    );
+    // TODO: Implement cart functionality
+    console.log("Adding item to cart");
   };
 
   return (
@@ -76,22 +66,12 @@ const PlanDetails = ({ navigation }: PlanDetailsScreenProps) => {
                 ...FONTS.fontSemiBold,
                 fontSize: 20,
                 color: COLORS.card,
+                marginLeft: -50
               }}
             >
               Details
             </Text>
-            <TouchableOpacity
-              onPress={() => {
-                addItemToCart();
-                navigation.navigate("MyCart");
-              }}
-              style={[
-                styles.backbtn,
-                { backgroundColor: "rgba(246,246,246,.3)" },
-              ]}
-            >
-              <Feather size={20} color={COLORS.card} name={"shopping-cart"} />
-            </TouchableOpacity>
+            <View></View>
           </View>
         </View>
         <View
@@ -116,69 +96,124 @@ const PlanDetails = ({ navigation }: PlanDetailsScreenProps) => {
               Orange
             </Text>
             <View style={{ paddingHorizontal: 20 }}>
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  marginTop: 40,
+                }}
+              >
+                <View style={{ flexDirection: "row", alignItems: "center" }}>
+                  <Image
+                    style={{
+                      height: 24,
+                      width: 24,
+                      resizeMode: "contain",
+                      marginRight: 8,
+                    }}
+                    source={IMAGES.Coverage}
+                  />
+                  <Text
+                    style={[
+                      styles.subtitle,
+                      {
+                        color: theme.dark ? "rgba(255,255,255,.7)" : "#4E4E4E",
+                      },
+                    ]}
+                  >
+                    Coverage :
+                  </Text>
+                </View>
+                <Text
+                  style={[
+                    styles.subtitle,
+                    { color: theme.dark ? "rgba(255,255,255,.7)" : "#4E4E4E" },
+                  ]}
+                >
+                  Tunisia
+                </Text>
+              </View>
 
-  <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center",marginTop : 40 }}>
-    <View style={{ flexDirection: "row", alignItems: "center" }}>
-      <Image
-        style={{
-          height: 24,
-          width: 24,
-          resizeMode: "contain",
-          marginRight: 8,
-        }}
-        source={IMAGES.Coverage}
-      />
-      <Text style={[styles.subtitle, { color: theme.dark ? "rgba(255,255,255,.7)" : "#4E4E4E" }]}>
-        Coverage :
-      </Text>
-    </View>
-    <Text style={[styles.subtitle, { color: theme.dark ? "rgba(255,255,255,.7)" : "#4E4E4E" }]}>
-      Tunisia
-    </Text>
-  </View>
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  marginTop: 20,
+                }}
+              >
+                <View style={{ flexDirection: "row", alignItems: "center" }}>
+                  <Image
+                    style={{
+                      height: 24,
+                      width: 24,
+                      resizeMode: "contain",
+                      marginRight: 8,
+                    }}
+                    source={IMAGES.Data}
+                  />
+                  <Text
+                    style={[
+                      styles.subtitle,
+                      {
+                        color: theme.dark ? "rgba(255,255,255,.7)" : "#4E4E4E",
+                      },
+                    ]}
+                  >
+                    Data :
+                  </Text>
+                </View>
+                <Text
+                  style={[
+                    styles.subtitle,
+                    { color: theme.dark ? "rgba(255,255,255,.7)" : "#4E4E4E" },
+                  ]}
+                >
+                  1 GB
+                </Text>
+              </View>
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  marginTop: 20,
+                }}
+              >
+                <View style={{ flexDirection: "row", alignItems: "center" }}>
+                  <Image
+                    style={{
+                      height: 24,
+                      width: 24,
+                      resizeMode: "contain",
+                      marginRight: 8,
+                    }}
+                    source={IMAGES.Validity}
+                  />
+                  <Text
+                    style={[
+                      styles.subtitle,
+                      {
+                        color: theme.dark ? "rgba(255,255,255,.7)" : "#4E4E4E",
+                      },
+                    ]}
+                  >
+                    Validity :
+                  </Text>
+                </View>
+                <Text
+                  style={[
+                    styles.subtitle,
+                    { color: theme.dark ? "rgba(255,255,255,.7)" : "#4E4E4E" },
+                  ]}
+                >
+                  7 Days
+                </Text>
+              </View>
+            </View>
 
-  <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center" ,marginTop : 20 }}>
-    <View style={{ flexDirection: "row", alignItems: "center" }}>
-      <Image
-        style={{
-          height: 24,
-          width: 24,
-          resizeMode: "contain",
-          marginRight: 8,
-        }}
-        source={IMAGES.Data}
-      />
-      <Text style={[styles.subtitle, { color: theme.dark ? "rgba(255,255,255,.7)" : "#4E4E4E" }]}>
-        Data :
-      </Text>
-    </View>
-    <Text style={[styles.subtitle, { color: theme.dark ? "rgba(255,255,255,.7)" : "#4E4E4E" }]}>
-      1 GB
-    </Text>
-  </View>
-  <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center"  ,marginTop : 20}}>
-    <View style={{ flexDirection: "row", alignItems: "center" }}>
-      <Image
-        style={{
-          height: 24,
-          width: 24,
-          resizeMode: "contain",
-          marginRight: 8,
-        }}
-        source={IMAGES.Validity}
-      />
-      <Text style={[styles.subtitle, { color: theme.dark ? "rgba(255,255,255,.7)" : "#4E4E4E" }]}>
-        Validity :
-      </Text>
-    </View>
-    <Text style={[styles.subtitle, { color: theme.dark ? "rgba(255,255,255,.7)" : "#4E4E4E" }]}>
-      7 Days
-    </Text>
-  </View>
-</View>
-
-
-            <View style={[GlobalStyleSheet.flex, { paddingVertical: 55 }]}>
+            <View style={[GlobalStyleSheet.flex, { paddingVertical: 35 }]}>
               <View
                 style={{
                   flexDirection: "row",
@@ -215,20 +250,122 @@ const PlanDetails = ({ navigation }: PlanDetailsScreenProps) => {
                 </Text>
               </View>
             </View>
+            <Text
+              style={[
+                styles.subtitle2,
+                { marginTop: -10, color: colors.title, lineHeight: 30 },
+              ]}
+            >
+              Additional Information
+            </Text>
           </View>
         </View>
-        
+        <View
+          style={{
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: colors.background,
+            marginBottom : 10
+          }}
+        >
+          <View
+            style={{
+              padding: 30,
+              borderWidth: 1,
+              borderColor: COLORS.primary,
+              backgroundColor: colors.card,
+              maxWidth: 320,
+              width: "100%",
+              borderRadius: SIZES.radius,
+            }}
+          >
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                marginTop: 10,
+              }}
+            >
+              <Image
+                style={{
+                  height: 24,
+                  width: 24,
+                  resizeMode: "contain",
+                }}
+                source={IMAGES.Network}
+              />
+              <Text
+                style={{ ...FONTS.font, color: colors.title, marginLeft: 10 , fontWeight: 'bold' }}
+              >
+                Network
+              </Text>
+            </View>
+            <Text style={{ ...FONTS.font, color: colors.text, marginLeft: 35 }}>
+              orange
+            </Text>
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                marginTop: 10,
+              }}
+            >
+              <Image
+                style={{
+                  height: 24,
+                  width: 24,
+                  resizeMode: "contain",
+                }}
+                source={IMAGES.plan}
+              />
+              <Text
+                style={{ ...FONTS.font, color: colors.title, marginLeft: 10 , fontWeight: 'bold'}}
+              >
+                Plan Type
+              </Text>
+            </View>
+            <Text style={{ ...FONTS.font, color: colors.text, marginLeft: 35 }}>
+              Data Only
+            </Text>
+            <View
+              style={{
+                flexDirection: "row",
+                alignItems: "center",
+                marginTop: 10,
+              }}
+            >
+              <Image
+                style={{
+                  height: 24,
+                  width: 24,
+                  resizeMode: "contain",
+                }}
+                source={IMAGES.Validity}
+              />
+              <Text
+                style={{ ...FONTS.font, color: colors.title, marginLeft: 10 , fontWeight: 'bold'}}
+              >
+                Validity Policy
+              </Text>
+            </View>
+            <Text style={{ ...FONTS.font, color: colors.text, marginLeft: 35 }}>
+              The validity period begins when the eSIM connects to a mobile
+              network within its coverage area. If you install the eSIM outside
+              the coverage area, it will connect to a network once you arrive.
+            </Text>
+          </View>
+        </View>
       </ScrollView>
       <View style={[GlobalStyleSheet.container, { paddingTop: 0 }]}>
         <Button
-          onPress={() => navigation.navigate("DeliveryAddress")}
-          title="Place order"
+          onPress={() => navigation.navigate("Confirmation")}
+          title="Buy Now"
           color={COLORS.primary}
           text={COLORS.card}
           style={{ borderRadius: 50 }}
         />
       </View>
-      
     </View>
   );
 };
@@ -249,7 +386,7 @@ const styles = StyleSheet.create({
     width: "100%",
     height: SIZES.height / 2,
     paddingTop: 60,
-    backgroundColor: COLORS.primary,
+    backgroundColor: COLORS.primaryLight,
     paddingBottom: 30,
   },
   backbtn: {

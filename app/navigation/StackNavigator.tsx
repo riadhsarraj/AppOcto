@@ -57,6 +57,7 @@ import Tables from '../screens/Components/Tables';
 import Toggles from '../screens/Components/Toggles';
 import Plans from '../screens/Plans/Plans';
 import PlanDetails from '../screens/PlansDetails/PlanDetails';
+import Confirmation from '../screens/confirmation/confirmation';
 
 
 
@@ -82,6 +83,7 @@ const StackNavigator = () => {
 				<StackComponent.Screen name="WelCome" component={WelCome} />
 				<StackComponent.Screen name="SignUp" component={SignUp} />
 				<StackComponent.Screen name="SingIn" component={SingIn} />
+				<StackComponent.Screen name="Confirmation" component={Confirmation} />
 				<StackComponent.Screen name="ForgotPassword" component={ForgotPassword} />
 				<StackComponent.Screen name="OTPAuthentication" component={OTPAuthentication} />
 				<StackComponent.Screen name="NewPassword" component={NewPassword} />

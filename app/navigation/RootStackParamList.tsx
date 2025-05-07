@@ -7,6 +7,7 @@ export type RootStackParamList = {
     DrawerNavigation: NavigatorScreenParams<BottomTabParamList>;
     openDrawer:undefined;
     Demo: undefined;
+    Confirmation : undefined;
     Plans: undefined;
     PlanDetails: undefined;
     ChooseLanguage: undefined;

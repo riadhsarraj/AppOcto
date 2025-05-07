@@ -57,14 +57,15 @@ const Plans = ({navigation} : PlansScreenProps) => {
             />  
            <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{flexGrow:1,paddingBottom:70,}}>
                 <View style={[GlobalStyleSheet.container, { paddingTop: 20,paddingHorizontal:10 }]}>
-                    <View style={{ }}>
+                    <View >
                         <ScrollView
                             showsVerticalScrollIndicator={false}
                         >
-                            <View>
+                            <View >
                                 {orderData.map((data:any, index) => {
                                     return (
-                                        <View   key={index} style={{marginBottom:30}}>
+                                        <View   key={index} style={{marginBottom:30,borderRadius: 16, // Ajuste la valeur comme tu veux (ex: 8, 16, 20...)
+                                            overflow: 'hidden',}}>
                                             <Cardstyle4
                                                 id={data.id}
                                                 

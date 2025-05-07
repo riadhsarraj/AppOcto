@@ -30,27 +30,19 @@ const PaymentAccordion = ({component ,Payment,netbanking} : Props)=> {
     };
 
     const SECTIONS = [
-        {
-            icon: IMAGES.dollar,
-            title: 'Cash on Delivery(Cash/UPI)',
-            content: 'Carry on your cash payment..\nThanx!',
-        },
+       
         {
             icon: IMAGES.payment,
-            title: 'Google Pay/Phone Pay/BHIM UPI',
+            title: 'Google Pay',
             content: 'Your UPI ID Will be encrypted and is 100% safe with us.',
             component: true
         },
         {
-            icon: IMAGES.folder,
-            title: 'Payments/Wallet',
+            icon: IMAGES.Paypal,
+            title: 'PayPal',
             payment: true
         },
-        {
-            icon: IMAGES.bank,
-            title: 'Netbanking',
-            netbanking: true,
-        },
+     
     ];
 
 

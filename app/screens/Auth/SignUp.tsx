@@ -101,7 +101,7 @@ const SignUp = ({navigation} : SignUpScreenProps) => {
                 <View style={{marginTop:30}}>
                     <Button
                         title={"Sign Up"}
-                        color={'#606060'}
+                        color={COLORS.primary}
                         onPress={() => navigation.navigate('SingIn')}
                         style={{borderRadius:52}}
                     />

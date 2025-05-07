@@ -15,6 +15,7 @@ export const COLORS = {
 	label: "#6E6E6E",                  
 	backgroundColor: "#FFF8F0",        
 	black: "#000000",
+
 	
 	//light theme
 	card : "#fff",
@@ -22,7 +23,7 @@ export const COLORS = {
 	text : "#1B1B1B",
 	title : "#222222",
 	borderColor : "#ECECEC",
-	input : "rgba(0,0,0,.03)",
+	input : "rgba(0, 0, 0, 0.1)",
 	inputborder:"#C1CDD9",
 	
 	//dark theme
