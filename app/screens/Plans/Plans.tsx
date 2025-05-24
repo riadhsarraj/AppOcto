@@ -15,9 +15,9 @@ const PlansData = [
         image:IMAGES.orange,
         title:'Orange',
         coverage:"Tunisia",
-        Data:"1 GB",
-        validity:"7 Days",
-        price:"$4.50",
+        Network:"4G/5G",
+        Services :"Data,Calls,SMS",
+        
         
         
     },
@@ -26,18 +26,18 @@ const PlansData = [
         image:IMAGES.ooredoo,
         title:"Ooredoo",
         coverage:"Tunisia",
-        Data:"2 GB",
-        validity:"7 Days",
-        price:"$6.50",
+        Network:"4G/5G",
+        Services :"Data,Calls,SMS",
+        
     },
     {
         id:"32",
         image:IMAGES.telecom,
         title:'Telecom',
         coverage:"Tunisia",
-        Data:"5 GB",
-        validity:"14 Days",
-        price:"$9.50",
+        Network:"4G/5G",
+        Services:"Data,Calls,SMS",
+        
     },
    
 ]
@@ -71,13 +71,13 @@ const Plans = ({navigation} : PlansScreenProps) => {
                                                 
                                                 title={data.title}
                                                 coverage={data.coverage}
-                                                Data={data.Data}
-                                                validity={data.validity}
+                                                Network={data.Network}
+                                                Services={data.Services}
                                                 price={data.price}
                                                 image={data.image}
                                                 btntitle={data.btntitle}
                                                 completed={data.completed}
-                                                onPress={() => navigation.navigate('PlanDetails')}
+                                                onPress={() => navigation.navigate('Services')}
                                                 onPress3={() => navigation.navigate('Trackorder')}
                                                 onPress4={() => navigation.navigate('Writereview')}                                          
                                             />

@@ -1,67 +1,76 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ViewStyle, TextStyle } from 'react-native';
 import { COLORS, SIZES, FONTS } from '../../constants/theme';
 
-type Props = {
-    title : string,
-    onPress ?: (e : any) => void,
-    color ?: any,
-    style ?: object,
-    size ?: any,
-    text ?: any,
+interface Props {
+    title: string;
+    onPress: () => void;
+    color?: string;
+    style?: ViewStyle;
+    textStyle?: TextStyle;
+    disabled?: boolean;
+    size?: 'sm' | 'lg';
 }
 
-const Button = ({
-    title,
-    onPress,
-    color,
-    style,
-    size,
-    text,
-}: Props) => {
+const Button: React.FC<Props> = ({ 
+    title, 
+    onPress, 
+    color = '#F28134', 
+    style, 
+    textStyle,
+    disabled = false,
+    size = 'lg'
+}) => {
     return (
-        <TouchableOpacity 
-            activeOpacity={0.8}
+        <TouchableOpacity
+            style={[
+                styles.button,
+                { backgroundColor: color },
+                disabled && styles.disabled,
+                style,
+                size === 'sm' && {
+                    height: 36,
+                    paddingHorizontal: 10,
+                    borderRadius: 4
+                },
+                size === 'lg' && {
+                    height: 55,
+                    paddingHorizontal: 30,
+                }
+            ]}
             onPress={onPress}
+            disabled={disabled}
         >
-            <View
-                style={[styles.button,color && {
-                    backgroundColor:color,
-                },size === 'sm' && {
-                    height:36,
-                    paddingHorizontal:10,
-                    borderRadius:4
-                },size === 'lg' && {
-                    height:55,
-                    paddingHorizontal:30,
-                },style && {...style}]}
-            >
-                <Text style={[styles.buttnTitle,size === 'sm' && {
-                        fontSize:14,
-                    },size === 'lg' && {
-                        fontSize:18,
-                    },color && {color : COLORS.white},text && {color : (text)}]}>{title}</Text>
-            </View>
+            <Text style={[styles.buttnTitle, size === 'sm' && {
+                fontSize: 14,
+            }, size === 'lg' && {
+                fontSize: 18,
+            }, color && { color: COLORS.white }, textStyle]}>
+                {title}
+            </Text>
         </TouchableOpacity>
-    )
-}
+    );
+};
 
 const styles = StyleSheet.create({
-    button : {
-        backgroundColor:COLORS.primary,
-        height:60,
-        borderRadius:8,
-        flexDirection:'row',
-        alignItems:'center',
-        justifyContent:'center',
-        paddingHorizontal:20,
+    button: {
+        backgroundColor: COLORS.primary,
+        height: 60,
+        borderRadius: 8,
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        paddingHorizontal: 20,
     },
-    buttnTitle : {
+    buttnTitle: {
         ...FONTS.fontSemiBold,
-        fontSize:16,
-        color : '#fff',
-        lineHeight:24,
-        textTransform:'uppercase'
+        fontSize: 16,
+        color: '#fff',
+        lineHeight: 24,
+        textTransform: 'uppercase'
+    },
+    disabled: {
+        opacity: 0.5,
     }
 });
 

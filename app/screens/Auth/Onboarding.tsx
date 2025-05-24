@@ -119,7 +119,7 @@ const Onboarding = ({navigation} : OnboardingScreenProps) => {
             </View>
             <View style={[GlobalStyleSheet.container,{padding:0,paddingHorizontal:30,paddingBottom:30}]}>
                 <Button
-                    style={{ borderRadius:52}}
+                    style={{ borderRadius:52 }}
                     title="GET STARTED"
                     onPress={() => navigation.navigate('WelCome')} 
                 />

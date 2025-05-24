@@ -1,155 +1,104 @@
-import { useTheme } from '@react-navigation/native';
-import React, { useState } from 'react'
-import { View, Text ,ScrollView} from 'react-native'
-import Header from '../../layout/Header';
-import { GlobalStyleSheet } from '../../constants/StyleSheet';
-import { IMAGES } from '../../constants/Images';
-import { COLORS, FONTS } from '../../constants/theme';
-import { Feather } from '@expo/vector-icons';
-import Button from '../../components/Button/Button';
-import { StackScreenProps } from '@react-navigation/stack';
-import { RootStackParamList } from '../../navigation/RootStackParamList';
-import { useDispatch, useSelector } from 'react-redux';
-import { removeFromCart } from '../../redux/reducer/cartReducer';
-import Cardstyle1 from '../../components/Card/Cardstyle1';
-
-
-const cardData =[
+import { useTheme } from "@react-navigation/native";
+import React from "react";
+import { View, FlatList, Image } from "react-native";
+import Header from "../../layout/Header";
+import { useSelector } from "react-redux";
+import { ListItem, Text } from "@rneui/themed";
+import { LinearGradient } from "expo-linear-gradient";
+import { StackScreenProps } from "@react-navigation/stack";
+import { RootStackParamList } from "../../navigation/RootStackParamList";
+import { IMAGES } from "../../constants/Images";
+type MyCartScreenProps = StackScreenProps<RootStackParamList, "MyCart">;
+const MyCart = ({ navigation }: MyCartScreenProps) => {
+  const cart = useSelector((state: any) => state.cart.cart);
+  const theme = useTheme();
+  const { colors }: { colors: any } = theme;
+  const defaultData = [
     {
-        id:"0",
-        image:IMAGES.item1,
-        title:"Hot Creamy Cappuccino Latte Ombe ",
-        price:"$12.6",
-        discount:"8.3",
+      id: "1",
+      name: "Data",
+      value: "200.00 GO",
+      image: IMAGES.Network,
     },
     {
-        id:"1",
-        image:IMAGES.item2,
-        title:"Hot Cappuccino Latte with Mocha",
-        price:"$13.6",
-        brand:"Coffee",
+      id: "2",
+      name: "Calls",
+      value: "50.00 Min",
+      image: IMAGES.call,
     },
     {
-        id:"2",
-        image:IMAGES.item3,
-        title:"Sweet Lemon Indonesian Tea",
-        price:"$51.6",
-        brand:"Tea, Lemon",
+      id: "3",
+      name: "SMS",
+      value: "10.00 SMS",
+      image: IMAGES.sms,
     },
-    {
-        id:"3",
-        image:IMAGES.item13,
-        title:"Arabica Latte Ombe Coffee",
-        price:"$51.6",
-        brand:"Coffee",
-    },
-    {
-        id:"4",
-        image:IMAGES.item14,
-        title:"Original Latte Ombe Hot Coffee ",
-        price:"$51.6",
-        brand:"Coffee",
-    },
-]
+  ];
+  const data = cart.length > 0
+    ? cart.map((item: { image: any }) => ({
+        ...item,
+        image: item.image || IMAGES.Network,
+      }))
+    : defaultData;
 
-
-type MyCartScreenProps = StackScreenProps<RootStackParamList, 'MyCart'>;
-
-const MyCart = ({navigation} : MyCartScreenProps)=> {
-
-    const cart = useSelector((state:any) => state.cart.cart);
-    const dispatch = useDispatch();
-
-    const theme = useTheme();
-    const { colors } : {colors : any} = theme;
-
-    const removeItemFromCart = (data: any) => {
-        dispatch(removeFromCart(data));
-    }
-
+  const renderItem = ({ item }: { item: any }) => (
+    <View
+      style={{
+        width: "90%",
+        marginVertical: 10,
+        alignSelf: "center", 
+      }}
+    >
+      <ListItem
+        linearGradientProps={{
+          colors: ["rgb(249, 128, 0)", "rgb(241, 208, 173)"],
+        }}
+        ViewComponent={LinearGradient}
+        containerStyle={{
+          borderRadius: 80,
+          paddingVertical: 35,
+          flexDirection: "row",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Image
+          source={item.image}
+          style={{ width: 35, height: 36, borderRadius: 12, marginRight: 10 }}
+        />
+        <ListItem.Content style={{ flex: 0 }}>
+          <ListItem.Title>
+            <Text style={{ color: "black", fontWeight: "bold", textAlign: "center" }}>
+              {item.name}
+            </Text>
+          </ListItem.Title>
+          <ListItem.Subtitle>
+            <Text style={{ color: "black", textAlign: "center" }}>
+              {item.value}
+            </Text>
+          </ListItem.Subtitle>
+        </ListItem.Content>
+        <ListItem.Chevron color="black" style={{ marginLeft: 10 }} />
+      </ListItem>
+    </View>
+  );
   return (
-      <View style={{backgroundColor:colors.background,flex:1}}>
-          <Header
-            title='Shopping Cart'
-            leftIcon='back'
-            //titleLeft
-            rightIcon1={'search'}
-          />
-            <ScrollView contentContainerStyle={{flexGrow:1,paddingBottom:70}} showsVerticalScrollIndicator={false}>
-                <View style={[GlobalStyleSheet.container,{padding:15}]}>
-                    <View>
-                        {cart.map((data:any, index:any) => {
-                            return (
-                                <View key={index} style={{marginBottom:10}}>
-                                    <Cardstyle1
-                                        discount={data.discount}
-                                        id={data.id}
-                                        image={data.image}
-                                        price={data.price}
-                                        title={data.title}
-                                        onPress={() => navigation.navigate('ProductsDetails')}                                        
-                                        onPress2={() => removeItemFromCart(data)}       
-                                    />
-                                </View>
-                            )
-                        })}
-                    </View>
-                </View>
-            </ScrollView>
-           
-                {cart.length > 0 ? 
-                    (
-                        
-                        <View style={[GlobalStyleSheet.container,{backgroundColor:colors.card,borderBottomWidth:1,borderBlockColor:COLORS.borderColor}]}>
-                            <Button
-                                title='Proceed to Buy'
-                                color={COLORS.primary}
-                                text={COLORS.card}
-                                onPress={() => navigation.navigate('DeliveryAddress')}
-                                style={{borderRadius:48}}
-                            />
-                        </View>
-                    )
-                    :
-                    (
-                        <View style={[GlobalStyleSheet.container,{padding:0,position:'absolute',left:0,right:0,bottom:0,top:65}]}>
-                            <View
-                                style={{
-                                    flex:1,
-                                    alignItems:'center',
-                                    justifyContent:'center',
-                                }}
-                            >
-                                <View
-                                    style={{
-                                        height:60,
-                                        width:60,
-                                        borderRadius:60,
-                                        alignItems:'center',
-                                        justifyContent:'center',
-                                        backgroundColor:COLORS.primaryLight,
-                                        marginBottom:20,
-                                    }}
-                                >
-                                    <Feather color={COLORS.primary} size={24} name='shopping-cart'/>
-                                </View>
-                                <Text style={{...FONTS.h5,color:colors.title,marginBottom:8}}>Your shopping-cart is Empty!</Text>    
-                                <Text
-                                    style={{
-                                        ...FONTS.fontSm,
-                                        color:colors.text,
-                                        textAlign:'center',
-                                        paddingHorizontal:40,
-                                        marginBottom:30,
-                                    }}
-                                >Add Product to you favourite and shop now.</Text>
-                            </View>
-                        </View>
-                    )
-                }
-            </View>
-  )
-}
-
-
-export default MyCart
+    <View style={{ backgroundColor: colors.background, flex: 1  }}>
+      <Header
+      title="My eSIMs"
+      leftIcon="back"
+     titleRight
+/>
+      <FlatList
+      style={{ flex: 1 }}
+        data={data}
+        keyExtractor={(item) => item.id}
+        renderItem={renderItem}
+        contentContainerStyle={{ 
+            padding: 10 ,
+            flexGrow: 1, 
+            justifyContent: "center", }}
+      />
+    </View>
+  );
+};
+export default MyCart;

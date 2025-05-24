@@ -26,9 +26,9 @@ const WelCome = ({navigation} : WelComeScreenProps) => {
                 source={IMAGES.back}
             />
             <ScrollView contentContainerStyle={{flexGrow:1}}>
-                <View style={[GlobalStyleSheet.container,{padding:0,marginTop:60,flex:1}]}>
+                <View style={[GlobalStyleSheet.container,{padding:0,marginTop:60,flex:1, justifyContent: 'center', alignItems: 'center'}]}>
                     <Image
-                        style={{height:undefined,width:'100%',aspectRatio:1/1,zIndex:99}}
+                        style={{height:undefined,width:'80%',aspectRatio:1/1,zIndex:99}}
                         source={IMAGES.logosim}
                     />
                 </View>

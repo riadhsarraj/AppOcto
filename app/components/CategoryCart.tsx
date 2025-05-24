@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../redux/reducer/cartReducer';
 import { addTowishList } from '../redux/reducer/wishListReducer';
+import CardService from './Card/CardService';
 
 const CategoryCart = ({data } : any) => {
     
@@ -28,16 +29,17 @@ const CategoryCart = ({data } : any) => {
                     {data.map((data:any, index:any) => {
                         return (
                             <View key={index} style={{marginBottom:35}}>
-                                <Cardstyle4
+                                <CardService
                                     id={data.id}
                                     image={data.image}
+                                    coverage={data.coverage} 
+                                    Data={data.Data} 
+                                    validity={data.validity} 
                                     price={data.price}
-                                    brand={data.brand}
                                     countnumber={data.countnumber} 
                                     title={data.title}
-                                    onPress={() => navigation.navigate('ProductsDetails')}
-                                    onPress2={() => {addItemToCart(data) ; navigation.navigate('MyCart')}}
-                                    onPress5={() => addItemToWishList(data) }
+                                    onPress={() => navigation.navigate('PlanDetails')}
+                                    
                                     product={true}                                                               
                                 />
                             </View>

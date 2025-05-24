@@ -58,6 +58,7 @@ import Toggles from '../screens/Components/Toggles';
 import Plans from '../screens/Plans/Plans';
 import PlanDetails from '../screens/PlansDetails/PlanDetails';
 import Confirmation from '../screens/confirmation/confirmation';
+import Services from '../screens/service/Services';
 
 
 
@@ -88,6 +89,7 @@ const StackNavigator = () => {
 				<StackComponent.Screen name="OTPAuthentication" component={OTPAuthentication} />
 				<StackComponent.Screen name="NewPassword" component={NewPassword} />
 				<StackComponent.Screen name="DrawerNavigation" component={DrawerNavigation} />
+				<StackComponent.Screen name="Services" component={Services} />
 				<StackComponent.Screen name="BottomNavigation" component={BottomNavigation} />
 				<StackComponent.Screen name="Notification" component={Notification} />
 				<StackComponent.Screen name="Search" component={Search} />

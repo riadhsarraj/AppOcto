@@ -2,7 +2,8 @@ import { Dimensions } from "react-native";
 const {width,height} = Dimensions.get('screen');
 
 export const COLORS = {
-	primary: "#F28134",               
+	primary: "#F28134",        
+	primary2: "#ad4e00",       
 	primaryLight: "#FABD7D",           
 	secondary: "#CACACA",              
 	success: "#4CAF50",               
@@ -23,7 +24,7 @@ export const COLORS = {
 	text : "#1B1B1B",
 	title : "#222222",
 	borderColor : "#ECECEC",
-	input : "rgba(0, 0, 0, 0.1)",
+	input : "rgba(214, 125, 30, 0.38)",
 	inputborder:"#C1CDD9",
 	
 	//dark theme

@@ -170,7 +170,7 @@ const BottomMenu = ({state, navigation, descriptors}: Props) => {
                                             source={
                                                 label === 'Home'    ?  IMAGES.Home:
                                                 label === 'Wishlist'   ?  IMAGES.heart2:
-                                                label === 'MyCart'     ?  IMAGES.shopping:
+                                                label === 'MyCart'     ?  IMAGES.sim:
                                                 label === 'Profile'  ?  IMAGES.user3 : IMAGES.Home
                                             }
                                         />

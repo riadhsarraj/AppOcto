@@ -10,8 +10,8 @@ type Props = {
   btntitle?: string;
   price: string;
   coverage?: string;
-  Data?: string;
-  validity?: string;
+  Network?: string;
+  Services?: string;
   image?: any;
   product?: any;
   Myorder?: any;
@@ -29,8 +29,8 @@ type Props = {
 const Cardstyle4 = ({
   title,
   image,
-  Data,
-  validity,
+  Network,
+  Services,
   countnumber,
   price,
   onPress,
@@ -82,172 +82,69 @@ const Cardstyle4 = ({
           />
         </View>
       </View>
-      <View
-        style={{
-          width: "60%",
-          paddingHorizontal: 20,
-          paddingRight: product ? 10 : 0,
-        }}
-      >
-        <View>
-          <Text
-            style={{
-              ...FONTS.fontMedium,
-              fontSize: 16,
-              color: colors.title,
-              paddingRight: 40,
-            }}
-          >
-            {title}
-          </Text>
-          <View style={{ flexDirection: "row", alignItems: "center", gap: 5 }}>
-            <Text style={{ ...FONTS.fontRegular, fontSize: 15 }}>Coverage</Text>
-            <Text
-              style={{
-                ...FONTS.fontRegular,
-                fontSize: 15,
-                color: theme.dark ? "rgba(255,255,255,.7)" : "#6A6A6A",
-              }}
-            >
-              {coverage}
-            </Text>
-          </View>
-          <View style={{ flexDirection: "row", alignItems: "center", gap: 5 }}>
-            <Text style={{ ...FONTS.fontRegular, fontSize: 15 }}>Data</Text>
-            <Text
-              style={{
-                ...FONTS.fontRegular,
-                fontSize: 15,
-                color: theme.dark ? "rgba(255,255,255,.7)" : "#6A6A6A",
-              }}
-            >
-              {Data}
-            </Text>
-          </View>
-          <View style={{ flexDirection: "row", alignItems: "center", gap: 5 }}>
-            <Text style={{ ...FONTS.fontRegular, fontSize: 15 }}>
-              Validity :
-            </Text>
-            <Text
-              style={{
-                ...FONTS.fontRegular,
-                fontSize: 15,
-                color: theme.dark ? "rgba(255,255,255,.7)" : "#6A6A6A",
-              }}
-            >
-              {validity}
-            </Text>
-          </View>
-        </View>
+      <View  style={{
+      paddingHorizontal: 20, 
+    }}>
+  <Text
+    style={{
+      ...FONTS.fontBold,
+      fontSize: 18,
+      color: colors.title,
+      paddingRight: 40,
+    }}
+  >
+    {title}
+  </Text>
 
-        <View style={[GlobalStyleSheet.flex, { marginTop: Myorder ? 45 : 30 }]}>
-          <Text
-            style={{ ...FONTS.fontSemiBold, fontSize: 18, color: colors.title }}
-          >
-            {price}
-          </Text>
-          {product ? (
-            <TouchableOpacity
-              activeOpacity={0.9}
-              onPress={() => {
-                setshow(!show);
-                onPress2();
-              }}
-              style={{
-                padding: 10,
-                paddingHorizontal: 25,
-                backgroundColor: show ? COLORS.primary : "#E5F5F0",
-                borderRadius: 30,
-                flexDirection: "row",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: 10,
-              }}
-            >
-              <Image
-                style={[
-                  GlobalStyleSheet.image2,
-                  { tintColor: show ? COLORS.card : COLORS.primary },
-                ]}
-                source={IMAGES.shoppingbag}
-              />
-              <Text
-                style={{
-                  ...FONTS.fontMedium,
-                  fontSize: 16,
-                  color: show ? COLORS.card : COLORS.primary,
-                }}
-              >
-                Buy
-              </Text>
-            </TouchableOpacity>
-          ) : Myorder ? (
-            completed ? (
-              <TouchableOpacity
-                activeOpacity={0.8}
-                onPress={onPress4}
-                style={{
-                  padding: 10,
-                  paddingHorizontal: 15,
-                  backgroundColor: COLORS.primary,
-                  borderRadius: 30,
-                  flexDirection: "row",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: 10,
-                }}
-              >
-                <Text
-                  style={{
-                    ...FONTS.fontMedium,
-                    fontSize: 14,
-                    color: COLORS.card,
-                    lineHeight: 21,
-                  }}
-                >
-                  {btntitle}
-                </Text>
-              </TouchableOpacity>
-            ) : (
-              <TouchableOpacity
-                activeOpacity={0.8}
-                onPress={onPress3}
-                style={{
-                  padding: 10,
-                  paddingHorizontal: 20,
-                  backgroundColor: COLORS.primary,
-                  borderRadius: 30,
-                  flexDirection: "row",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: 10,
-                }}
-              >
-                <Text
-                  style={{
-                    ...FONTS.fontMedium,
-                    fontSize: 14,
-                    color: COLORS.card,
-                    lineHeight: 21,
-                  }}
-                >
-                  {btntitle}
-                </Text>
-              </TouchableOpacity>
-            )
-          ) : (
-            <Text
-              style={{
-                ...FONTS.fontMedium,
-                fontSize: 18,
-                color: COLORS.primary,
-              }}
-            >
-              {countnumber}
-            </Text>
-          )}
-        </View>
-      </View>
+  <View style={{ flexDirection: "row", alignItems: "center", gap: 5, marginTop: 8 }}>
+    <Text style={{ ...FONTS.fontRegular, fontSize: 15 }}>Coverage</Text>
+    <Text
+      style={{
+        ...FONTS.fontRegular,
+        fontSize: 15,
+        color: theme.dark ? "rgba(255,255,255,.7)" : "#6A6A6A",
+      }}
+    >
+      {coverage}
+    </Text>
+  </View>
+
+  <View style={{ flexDirection: "row", alignItems: "center", gap: 5, marginTop: 8 }}>
+    <Text style={{ ...FONTS.fontRegular, fontSize: 15 }}>Network</Text>
+    <Text
+      style={{
+        ...FONTS.fontRegular,
+        fontSize: 15,
+        color: theme.dark ? "rgba(255,255,255,.7)" : "#6A6A6A",
+      }}
+    >
+      {Network}
+    </Text>
+  </View>
+
+  <View
+    style={{
+      flexDirection: "row",
+      alignItems: "flex-start",
+      gap: 5,
+      flexWrap: "wrap",
+      marginTop: 8, // 👈 espacement vertical ajouté
+    }}
+  >
+    <Text style={{ ...FONTS.fontRegular, fontSize: 15 }}>Services :</Text>
+    <Text
+      style={{
+        ...FONTS.fontRegular,
+        fontSize: 15,
+        color: theme.dark ? "rgba(255,255,255,.7)" : "#6A6A6A",
+        flexShrink: 1,
+      }}
+    >
+      {Services}
+    </Text>
+  </View>
+</View>
+
     </TouchableOpacity>
   );
 };

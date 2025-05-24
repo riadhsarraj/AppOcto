@@ -66,7 +66,7 @@ const ImageSwiper = ({ data } : any) => {
                   width: 206, 
                   backgroundColor: COLORS.primary, 
                   borderRadius: 31,
-                  shadowColor: "#025135",
+                  
                   shadowOffset: {
                       width: 0,
                       height: 15,

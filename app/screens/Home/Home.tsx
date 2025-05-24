@@ -264,7 +264,7 @@ export const Home = ({ navigation }: HomeScreenProps) => {
                           backgroundColor: theme.dark
                             ? colors.background
                             : colors.card,
-                          shadowColor: "rgba(4,118,78,.6)",
+                          
                           borderWidth: selectedType === (data.id === "1" ? "local" : data.id === "2" ? "regional" : "global") ? 2 : 1,
                           borderColor: selectedType === (data.id === "1" ? "local" : data.id === "2" ? "regional" : "global") ? COLORS.primary : "#EFEFEF",
                         },
@@ -405,7 +405,7 @@ const styles = StyleSheet.create({
     paddingVertical: 15,
     borderWidth: 1,
     borderColor: "#EFEFEF",
-    shadowColor: "rgba(4,118,78,.6)",
+    shadowColor: "rgba(238, 238, 238, 0.6)",
     shadowOffset: {
       width: 0,
       height: 4,
