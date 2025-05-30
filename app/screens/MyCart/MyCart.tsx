@@ -50,7 +50,7 @@ const MyCart = ({ navigation }: MyCartScreenProps) => {
     >
       <ListItem
         linearGradientProps={{
-          colors: ["rgb(249, 128, 0)", "rgb(241, 208, 173)"],
+          colors: ["rgba(249, 129, 0, 0.87)", "rgb(241, 208, 173)"],
         }}
         ViewComponent={LinearGradient}
         containerStyle={{
@@ -86,7 +86,7 @@ const MyCart = ({ navigation }: MyCartScreenProps) => {
       <Header
       title="My eSIMs"
       leftIcon="back"
-     titleRight
+      rightIcon4='home'
 />
       <FlatList
       style={{ flex: 1 }}

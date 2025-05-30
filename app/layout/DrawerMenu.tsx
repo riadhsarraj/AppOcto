@@ -17,24 +17,6 @@ const MenuItems = [
         navigate: "Home",
     },
     {
-        id:"1",
-        icon: IMAGES.producta,
-        name: "Products",
-        navigate: "Products",
-    },
-    {
-        id:"2",
-        icon: IMAGES.components,
-        name: "Components",
-        navigate: "Components",
-    },
-    {
-        id:"3",
-        icon: IMAGES.star,
-        name: "Featured",
-        navigate: "Writereview",
-    },
-    {
         id:"4",
         icon: IMAGES.heart,
         name: "Wishlist",
@@ -42,20 +24,15 @@ const MenuItems = [
     },
     {
         id:"5",
-        icon: IMAGES.order,
+        icon: IMAGES.shopping,
         name: "My Orders",
         navigate: 'Myorder',
     },
-    {
-        id:"6",
-        icon: IMAGES.shopping,
-        name: "My Cart",
-        navigate: 'MyCart',
-    },
+   
     {
         id:"7",
-        icon: IMAGES.chat,
-        name: "Chat List",
+        icon: IMAGES.order,
+        name: "History",
         navigate: 'Chat',
     },
     {
@@ -63,6 +40,12 @@ const MenuItems = [
         icon: IMAGES.user3,
         name: "Profile",
         navigate: "Profile",
+    },
+    {
+        id:"6",
+        icon: IMAGES.sim,
+        name: "E-SIM",
+        navigate: 'MyCart',
     },
     {
         id:"9",
@@ -101,9 +84,10 @@ const DrawerMenu = ({navigation}:any) => {
                     }}
                 >
                     <Image
-                        style={{height:35,width:114}}
-                        source={theme.dark ? IMAGES.appnamedark :IMAGES.appname}
+                        style={{height:85,width:114}}
+                        source={theme.dark ? IMAGES.logosim :IMAGES.logosim}
                     />
+                    <Text style={{...FONTS.fontSemiBold,fontSize:20,color:colors.title,marginTop:10}}>Octo-SIM</Text>
                 </View>
                 <View
                     style={[GlobalStyleSheet.flex,{

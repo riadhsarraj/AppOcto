@@ -11,69 +11,25 @@ import { RootStackParamList } from '../../navigation/RootStackParamList';
 
 const MessagesData = [
     {
-        image: IMAGES.small2,
-        title: "Emily Johnson",
-        message: "Text me!",
+        image: IMAGES.orange,
+        title: "10 GO",
+        message: "10$",
         time: "Fri",
-        hasstory: true,
+        
     },
     {
-        image: IMAGES.small3,
-        title: "Michael Anderson",
-        message: "Call me back.",
+        image: IMAGES.ooredoo,
+        title: "20 Go - 100 min - 20 sms",
+        message: "20 $",
         time: "Mon",
-        hasstory: true,
     },
     {
-        image: IMAGES.small4,
-        title: "Olivia Davis",
-        message: "I got you bro!",
-        time: "2 Hours"
+        image: IMAGES.telecom,
+        title: "15 GO",
+        message: "8 $",
+        time: "Sat"
     },
-    {
-        image: IMAGES.small5,
-        title: "Daniel Wilson",
-        message: "Haha, i hit you up",
-        time: "2 Min"
-    },
-    {
-        image: IMAGES.small6,
-        title: "Sophia Martinez",
-        message: "Call me back.",
-        time: "Sun",
-        hasstory: true,
-    },
-    {
-        image: IMAGES.small7,
-        title: "William Thompson",
-        message: "Haha, i hit you up",
-        time: "7 Aug 2023",
-    },
-    {
-        image: IMAGES.small2,
-        title: "Ava Hernandez",
-        message: "Text me!",
-        time: "Tus",
-    },
-    {
-        image: IMAGES.small3,
-        title: "James White",
-        message: "I got you bro!",
-        time: "Fri"
-    },
-    {
-        image: IMAGES.small4,
-        title: "Mia Rodriguez",
-        message: "Call me back.",
-        time: "Mon"
-    },
-    {
-        image: IMAGES.small5,
-        title: "Benjamin Clark",
-        message: "Text me!",
-        time: "2 Hours",
-        hasstory: true,
-    },
+   
 ]
 
 type ChatScreenProps = StackScreenProps<RootStackParamList, 'Chat'>;
@@ -87,7 +43,7 @@ const Chat = ({navigation} : ChatScreenProps) => {
     return (
         <View style={{backgroundColor:colors.background,flex:1}}>
             <Header
-                title='Messages'
+                title='History'
                 leftIcon='back'
                 rightIcon1={'search'}
             />

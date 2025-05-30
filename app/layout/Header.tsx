@@ -51,7 +51,7 @@ const Header = ({title, leftIcon, leftAction,transparent,productId,titleLeft,tit
                 right: 0,
                 borderBottomWidth: 0,
             },Platform.OS === 'ios' && {
-                backgroundColor:colors.card
+                backgroundColor:colors.card,
             }]}
         >
              <View style={[GlobalStyleSheet.container, {

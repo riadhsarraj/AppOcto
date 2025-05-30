@@ -1,153 +1,131 @@
 import { useTheme } from '@react-navigation/native';
-import React, { useState } from 'react'
-import { View, Text, ScrollView, TouchableOpacity, StyleSheet} from 'react-native'
+import React, { useState } from 'react';
+import { View, Text, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
 import Header from '../../layout/Header';
-import { COLORS,FONTS} from '../../constants/theme';
+import { COLORS, FONTS } from '../../constants/theme';
 import { GlobalStyleSheet } from '../../constants/StyleSheet';
 import { IMAGES } from '../../constants/Images';
 import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from '../../navigation/RootStackParamList';
-import Cardstyle4 from '../../components/Card/Cardstyle4';
-
+import Cardstyle1 from '../../components/Card/Cardstyle1';
 
 const MyorderData = [
     {
-        id:"30",
-        image:IMAGES.item3,
-        title:'Sweet Lemon Indonesian Tea',
-        price:"$12.6",
-        brand:"Tea Lemon",
-        btntitle:'Track Order',
-        trackorder:true,
-        status : "ongoing",
+        id: "30",
+        image: IMAGES.orange,
+        Brande: "Orange",
+        title: '10 Go',
+        price: "$11.6",
+        validity: "7 Days",
+      
     },
     {
-        id:"31",
-        image:IMAGES.item2,
-        title:"Creamy Mocha Ome Coffee",
-        price:"$92.9",
-        brand:"Coffee",
-        btntitle:'Write Review',
-        hascolor:true,
-        completed:true,
-        status : "completed",
+        id: "31",
+        image: IMAGES.orange,
+        Brande: "Orange",
+        title: '20 Go',
+        price: "$19.6",
+        validity: "14 Days",
     },
-    {
-        id:"32",
-        image:IMAGES.item1,
-        title:'Arabica Latte Ombe Coffee',
-        price:"$11.9",
-        brand:"Coffee",
-        btntitle:'Write Review',
-        EditReview:true,
-        completed:true,
-        status : "completed",
-    },
-    {
-        id:"33",
-        image:IMAGES.item4,
-        title:'Original Hot Coffee',
-        price:"$11.49",
-        brand:"Coffee",
-        btntitle:'Write Review',
-        completed:true,
-        status : "completed",
-    },
-    {
-        id:"34",
-        image:IMAGES.item1,
-        title:"Hot Cappuccino Latte with Mocha",
-        price:"$9.29",
-        brand:"Coffee",
-        btntitle:'Track Order',
-        trackorder:true,
-        status : "ongoing",
-    },
-    {
-        id:"35",
-        image:IMAGES.item2,
-        title:'Arabica Latte Ombe Coffee ',
-        price:"$11.99",
-        btntitle:'Track Order',
-        brand:"coffee",
-        trackorder:true,
-        status : "ongoing",
-    },
-]
+];
 
 type MyorderScreenProps = StackScreenProps<RootStackParamList, 'Myorder'>;
 
-const Myorder = ({navigation} : MyorderScreenProps) => {
+const Myorder = ({ navigation }: MyorderScreenProps) => {
     const theme = useTheme();
-    const { colors } : {colors : any} = theme;
+    const { colors }: { colors: any } = theme;
 
-    const [orderData , setOrderData] = useState(MyorderData);
+    const [orderData, setOrderData] = useState(MyorderData);
     const [activeFilter, setActiveFilter] = useState('all'); // Track active filter
 
-    const filterData = (val:any) => {
+    const filterData = (val: any) => {
         setActiveFilter(val); // Update active filter when a filter is selected
-        if(val === 'all'){
+        if (val === 'all') {
             setOrderData(MyorderData);
         } else {
-            const newArry = MyorderData.filter(e => e.status === val);
+            const newArry = MyorderData.filter((e) => e.status === val);
             setOrderData(newArry);
         }
-    }
-
+    };
 
     return (
-       <View style={{backgroundColor:theme.dark ? colors.background : colors.card,flex:1}}>
+        <View style={{ backgroundColor: theme.dark ? colors.background : colors.card, flex: 1 }}>
             <Header
-                title='My Order'
-                leftIcon='back'
-                rightIcon4='home'
+                title="My Order"
+                leftIcon="back"
+                rightIcon4="home"
             />
-           
-               
-         
-           <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{flexGrow:1,paddingBottom:70,}}>
-                <View style={[GlobalStyleSheet.container, { paddingTop: 20,paddingHorizontal:10 }]}>
-                    <View style={{ }}>
-                        <ScrollView
-                            showsVerticalScrollIndicator={false}
-                        >
+            <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ flexGrow: 1, paddingBottom: 100 }}>
+                <View style={[GlobalStyleSheet.container, { paddingTop: 10, paddingHorizontal: 10 }]}>
+                    <View>
+                        <ScrollView showsVerticalScrollIndicator={false}>
                             <View>
-                                {orderData.map((data:any, index) => {
+                                {orderData.map((data: any, index) => {
                                     return (
-                                        <View   key={index} style={{marginBottom:30}}>
-                                            <Cardstyle4
+                                        <View key={index} style={{ marginBottom: 30 }}>
+                                            <Cardstyle1
                                                 id={data.id}
                                                 Myorder={true}
+                                                Brande={data.Brande}
+                                                validity={data.validity}
                                                 title={data.title}
                                                 price={data.price}
                                                 image={data.image}
-                                                
-                                                btntitle={data.btntitle}
-                                                completed={data.completed}
-                                                onPress={() => navigation.navigate('ProductsDetails')}
-                                                onPress3={() => navigation.navigate('Trackorder')}
-                                                onPress4={() => navigation.navigate('Writereview')}                                          
                                             />
                                         </View>
-                                    )
+                                    );
                                 })}
                             </View>
                         </ScrollView>
                     </View>
                 </View>
             </ScrollView>
-       </View>
-    )
-}
-
+            {/* New Order Button */}
+            <View style={styles.buttonContainer}>
+                <TouchableOpacity
+                    style={[styles.newOrderButton, { backgroundColor: "#F28134"}]}
+                    onPress={() => navigation.navigate('NewOrder')} // Adjust 'NewOrder' to your target screen name
+                >
+                    <Text style={[styles.buttonText, { color: colors.card }]}>BUY NOW</Text>
+                </TouchableOpacity>
+            </View>
+        </View>
+    );
+};
 
 const styles = StyleSheet.create({
-    TopbarCenterLine:{
-        flexDirection:'row',
-        alignItems:'center',
-        gap:5,
-        justifyContent:'center',
-    }
-})
+    TopbarCenterLine: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        gap: 5,
+        justifyContent: 'center',
+    },
+    buttonContainer: {
+        position: 'absolute',
+        bottom: 20,
+        left: 0,
+        right: 0,
+        paddingHorizontal: 20,
+        alignItems: 'center',
+    },
+    newOrderButton: {
+        borderRadius: 10,
+        paddingVertical: 15,
+        paddingHorizontal: 20,
+        width: '100%',
+        alignItems: 'center',
+        justifyContent: 'center',
+        elevation: 2, // For Android shadow
+        shadowColor: '#000', // For iOS shadow
+        shadowOffset: { width: 0, height: 2 },
+        shadowOpacity: 0.1,
+        shadowRadius: 4,
+    },
+    buttonText: {
+        fontSize: 16,
+        fontFamily: FONTS.medium, // Adjust to your theme's font
+        textAlign: 'center',
+    },
+});
 
-export default Myorder
+export default Myorder;

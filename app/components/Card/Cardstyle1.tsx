@@ -9,14 +9,15 @@ import CheckoutItems from '../CheckoutItems'
 type Props = {
     id : string;
     title : string;
+    Brande : string;
     price : string;
+    validity : string;
     image ?: any;
-    discount ?: string;
     onPress ?: (e : any) => void,
     onPress2 ?: (e : any) => void,
 }
 
-const Cardstyle1 = ({id,title,image,discount,price,onPress,onPress2} : Props) => {
+const Cardstyle1 = ({title,image,price,Brande, validity,onPress,onPress2} : Props) => {
 
     const theme = useTheme();
     const { colors } : {colors : any} = theme;
@@ -32,7 +33,7 @@ const Cardstyle1 = ({id,title,image,discount,price,onPress,onPress2} : Props) =>
             backgroundColor:colors.card,
             borderRadius:13,
             padding:15,
-            shadowColor:theme.dark ? colors.background : "rgba(4,118,78,.6)",
+            shadowColor:theme.dark ? colors.background : "rgba(118, 65, 4, 0.6)",
             shadowOffset: {
                 width: 0,
                 height: 4,
@@ -67,20 +68,15 @@ const Cardstyle1 = ({id,title,image,discount,price,onPress,onPress2} : Props) =>
                 paddingLeft:15,
             }}
         >
-            <Text style={{...FONTS.fontMedium,fontSize:16,color:colors.title,paddingRight:25}}>{title}</Text>
+            <Text style={{...FONTS.fontMedium,fontSize:16,color:colors.title,paddingRight:25}}>Brande : {Brande}</Text>
+            <Text style={{...FONTS.fontMedium,fontSize:16,color:colors.title,paddingRight:25}}>Data : {title}</Text>
+            <Text style={{...FONTS.fontMedium,fontSize:16,color:colors.title,paddingRight:25}}>Validity : {validity}</Text>
             <View style={{flexDirection:'row',alignItems:'center',gap:10}}>
                 <View style={[{flexDirection:'row' , alignItems:'center', gap:5,}]}>
-                    <Text style={{...FONTS.fontSemiBold,fontSize:18,color:colors.title}}>{price}</Text>
-                    {discount ? 
-                        <Text style={{...FONTS.fontMedium,fontSize:16,color:'#6CAE97',textDecorationLine:'line-through'}}>{discount}</Text>
-                        :
-                        <Text style={{...FONTS.fontMedium,fontSize:16,color:'#6CAE97',textDecorationLine:'line-through'}}>100.3</Text>
-                    }
+                    <Text style={{...FONTS.fontSemiBold,fontSize:18,color:colors.title}}>Price : {price}</Text>
+                    
                 </View>
-                <View style={[{flexDirection:'row' , alignItems:'center',  gap:5,}]}>
-                    <Image source={IMAGES.Star4} style={{height:15,width:15,resizeMode:'contain',tintColor:'#FFA048'}}/>
-                    <Text style={{...FONTS.fontRegular,fontSize:14,color:'#6CAE97'}}>(2K Review)</Text>
-                </View>
+               
             </View>
             <View style={{
                 flexDirection:'row',
@@ -88,7 +84,7 @@ const Cardstyle1 = ({id,title,image,discount,price,onPress,onPress2} : Props) =>
                 justifyContent:'space-between',
                 marginTop:20
             }}> 
-                <CheckoutItems />
+                
                 <TouchableOpacity
                     onPress={onPress2} 
                     activeOpacity={0.5} 

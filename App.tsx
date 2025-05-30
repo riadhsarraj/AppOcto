@@ -5,10 +5,7 @@ import { StatusBar } from 'expo-status-bar';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import { Provider } from 'react-redux'
 import store from './app/redux/store';
-
 export default function App() {
-
-
   const [loaded] = useFonts({
     PoppinsBold: require('./app/assets/fonts/Poppins-Bold.ttf'),
     PoppinsSemiBold: require('./app/assets/fonts/Poppins-SemiBold.ttf'),
@@ -17,12 +14,12 @@ export default function App() {
     PoppinsRegular : require('./app/assets/fonts/Poppins-Regular.ttf'),
     PoppinsExtraLight : require('./app/assets/fonts/Poppins-ExtraLight.ttf'),
   });  
-
   if(!loaded){
     return null;
   }
   return (
     <SafeAreaProvider>
+      
         <SafeAreaView
           style={{
             flex: 1,

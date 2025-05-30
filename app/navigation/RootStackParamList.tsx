@@ -80,6 +80,7 @@ export type RootStackParamList = {
     TabStyle2: undefined;
     TabStyle3: undefined;
     TabStyle4: undefined;
+    Offer: undefined;
 
 };
 export type DrawerParamList = {

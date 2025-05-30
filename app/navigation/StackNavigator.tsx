@@ -59,6 +59,7 @@ import Plans from '../screens/Plans/Plans';
 import PlanDetails from '../screens/PlansDetails/PlanDetails';
 import Confirmation from '../screens/confirmation/confirmation';
 import Services from '../screens/service/Services';
+import Offer from '../screens/Offer/Offer';
 
 
 
@@ -109,7 +110,7 @@ const StackNavigator = () => {
 				 <StackComponent.Screen name="Singlechat" component={Singlechat} />
 				 <StackComponent.Screen name="Call" component={Call} /> 
 				 <StackComponent.Screen name="EditProfile" component={EditProfile} />
-				
+				 <StackComponent.Screen name="Offer" component={Offer} />
 				<StackComponent.Screen name="Components" component={Components} />
 				<StackComponent.Screen name="Accordion" component={AccordionScreen} />
 				<StackComponent.Screen name="BottomSheet" component={BottomSheet} />
